@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 45%;
+    --radius: 0.625rem;
+    --chart-1: 210 100% 45%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 13%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 13%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 55%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 210 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Chart container styles */
+.chart-container {
+  @apply w-full h-full min-h-[300px];
+}
+
+/* Data table styles */
+.data-table {
+  @apply w-full text-sm;
+}
+
+.data-table th {
+  @apply bg-muted/50 font-semibold text-left p-3;
+}
+
+.data-table td {
+  @apply p-3 border-t border-border;
+}
+
+/* Upload zone styles */
+.upload-zone {
+  @apply border-2 border-dashed border-border rounded-xl p-8 text-center
+         transition-all duration-200 cursor-pointer
+         hover:border-primary/50 hover:bg-primary/5;
+}
+
+.upload-zone.dragging {
+  @apply border-primary bg-primary/10;
+}
+
+/* Stat card */
+.stat-card {
+  @apply bg-card rounded-xl p-4 border border-border shadow-sm;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-foreground;
+}
+
+.stat-label {
+  @apply text-sm text-muted-foreground;
+}
+
+/* Coefficient table */
+.coef-positive {
+  @apply text-emerald-600 dark:text-emerald-400;
+}
+
+.coef-negative {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.p-significant {
+  @apply font-semibold text-emerald-600 dark:text-emerald-400;
+}
+
+.p-not-significant {
+  @apply text-muted-foreground;
+}
